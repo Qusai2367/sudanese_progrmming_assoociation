@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "feather-icons": "^4.29.2",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-feather": "^2.0.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

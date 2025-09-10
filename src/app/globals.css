@@ -1,48 +1,77 @@
 :root {
-  --color-gray-400: oklch(70.7% 0.022 261.325);
+    
+    --color-gray-400: #99a1af;
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: #1e2939;
     --color-gray-900: #101828;
     --color-white: #fff;
+    --red-color : #ea2a33;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  color: var(--color-white);
-  background: var(--color-gray-900);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    color: var(--color-white);
+    background: var(--color-gray-900);
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 70px; /* Add padding to offset the fixed navbar */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 50px;
+    }
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+.spacing {
+    padding: 30px 70px;
 }
 
+@media (max-width: 768px) {
+    .spacing {
+        padding: 20px 20px;
+    }
+}
+
+.blog-spacing {
+    padding: 5rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .blog-spacing {
+        padding: 2.5rem 1rem;
+    }
+}
+
+.bg-gray-800 {background: var(--color-gray-800);}
+.text-gra {color: var(--color-gray-400);}
+.bg-red  {background: var(--red-color);}
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
 }
-
-

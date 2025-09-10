@@ -1,19 +1,20 @@
 import profile from "../assets/profile.png";
 import profile2 from "../assets/profile2.png";
-import responsive from "../assets/Responsive.jpg";
-import Docker from "../assets/Docker.jpg";
+import responsive from "../assets/unnamed3.png";
+import responsive2 from "../assets/unnamed2.png";
+import Docker from "../assets/unnamed.png";
 export const posts = [
     {
         id: 1,
-        title: "Responsivwe Design in 2024",
+        title: "Building Scalable Web Apps in Sudan",
         content:
-            "Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco.",
+            "A guide to building robust and scalable web applications tailored for the Sudanese market.",
         PostImage: responsive,
         likes: 10,
-        image: "https://via.placeholder.com/600x300",
         author: {
             name: "Alice Johnson",
             photo: profile,
+            specialization: "Software Engineer",
         },
         createdAt: "2025-09-01T10:00:00Z",
         comments: [
@@ -44,14 +45,15 @@ export const posts = [
 
     {
         id: 2,
-        title: "Second Post",
+        title: "The Future of Mobile Development in Sudan",
         content:
-            "Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco.",
+            "Exploring the trends and opportunities in mobile app development within Sudan.",
         likes: 10,
-        image: "https://via.placeholder.com/600x300",
+        PostImage: responsive2,
         author: {
             name: "Encanto",
             photo: profile2,
+            specialization: "Mobile Developer",
         },
         createdAt: "2025-09-01T10:00:00Z",
         comments: [
@@ -82,15 +84,15 @@ export const posts = [
 
     {
         id: 3,
-        title: "Docker",
+        title: "Open Source Contributions from Sudanese Developers",
         content:
-            "Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco. Velit in mollit laborum aliquip eiusmod minim elit est Lorem mollit ullamco.",
+            "Showcasing the contributions of Sudanese developers to the global open-source community.",
         likes: 20,
         PostImage: Docker,
-        image: "https://via.placeholder.com/600x300",
         author: {
             name: "Ahmed Abdo",
             photo: profile,
+            specialization: "Open Source Contributor",
         },
         createdAt: "2025-09-02T15:30:00Z",
         comments: [],
