@@ -19,7 +19,7 @@ const ProjectUpdates = () => {
                             key={project.id}
                         >
                             <div className="d-flex flex-column flex-md-row align-items-center gap-4">
-                                {/* الصورة أعلى في الشاشات الصغيرة */}
+
                                 <div className="flex-1 w-100 order-0 order-md-1 mb-3 mb-md-0">
                                     <Image
                                         src={project.image}
@@ -27,12 +27,13 @@ const ProjectUpdates = () => {
                                         className="img-fluid w-100 rounded-3"
                                         style={{
                                             height: "200px",
+                                            // width: "50%",
                                             objectFit: "cover",
                                         }}
                                     />
                                 </div>
 
-                                {/* النصوص */}
+                          
                                 <div className="flex-1 d-flex flex-column justify-content-center text-center text-md-start order-1 order-md-0">
                                     <h5 className="fw-bold">{project.title}</h5>
                                     <p className="text-secondary small mb-3">
