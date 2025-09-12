@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Navbar, Nav, Container } from "react-bootstrap";
-// import logo from "../assets/terminal.svg";
-// import Image from "next/image";
+import logo from "../assets/logo.jpeg";
+import Image from "next/image";
 // import Pen from "./Pen";
 
 const NavBar = () => {
@@ -22,15 +22,23 @@ const NavBar = () => {
         >
             <Container fluid className="mx-5">
                 <Navbar.Brand as={Link} href="/">
-                    <div className="d-flex items-center gap-3">
-                        <span className="text-gray-100 text-2xl font-bold leading-tight tracking-tight">
-                            Tech Innovators of Sudan
-                        </span>
+                    <div className="d-flex items-center gap-3 ">
+                        <Image
+                            src={logo}
+                            alt="Association logo"
+                            className="img-fluid rounded"
+                            width={70}
+                            height={70}
+                            style={{
+                                maxWidth: "100%",
+                                height: "auto",
+                            }}
+                        />
                     </div>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
-                    <Nav className="ms-auto gap-4 align-items-center">
+                    <Nav className="ms-auto d-flex flex-wrap gap-4 align-items-center justify-content-end">
                         <Nav.Link as={Link} href="/" active={pathname === "/"}>
                             Home
                         </Nav.Link>
@@ -47,6 +55,20 @@ const NavBar = () => {
                             active={pathname === "/projects"}
                         >
                             Projects
+                        </Nav.Link>
+                        <Nav.Link
+                            as={Link}
+                            href="/about"
+                            active={pathname === "/about"}
+                        >
+                            About Us
+                        </Nav.Link>
+                        <Nav.Link
+                            as={Link}
+                            href="/contact"
+                            active={pathname === "/contact"}
+                        >
+                            Contact Us
                         </Nav.Link>
                         <Nav.Link
                             as={Link}

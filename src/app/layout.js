@@ -22,9 +22,16 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" data-scroll-behavior="smooth">
             <head></head>
-            <body className={`${geistSans.variable} ${geistMono.variable}`}>
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}
+            >
                 <NavBar />
-                <div className="spacing md:p-2">{children}</div>
+                <main
+                    className="spacing md:p-2 flex-grow"
+                    style={{ position: "relative", marginTop:50}}
+                >
+                    {children}
+                </main>
             </body>
         </html>
     );
