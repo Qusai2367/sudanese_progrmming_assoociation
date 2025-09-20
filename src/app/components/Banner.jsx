@@ -1,7 +1,7 @@
-import React from 'react'
-import Search from './Search';
+import React from "react";
+import Search from "./Search";
 
-const MainHero = ({ mainDescription, mainTitle, search }) => {
+const Banner = ({ mainDescription, mainTitle, search }) => {
     return (
         <>
             <div className="d-flex flex-column align-items-center text-center gap-4 ">
@@ -10,14 +10,12 @@ const MainHero = ({ mainDescription, mainTitle, search }) => {
                     style={{ maxWidth: "48rem" }}
                 >
                     {mainTitle}
-                   
                 </h2>
                 <p
-                    className=" fs-5 fw-normal lh-base  "
+                    className=" fs-5 fw-normal lh-base banner-font "
                     style={{ maxWidth: "60rem", color: "#99a1af" }}
                 >
                     {mainDescription}
-                   
                 </p>
                 {search}
             </div>
@@ -25,4 +23,4 @@ const MainHero = ({ mainDescription, mainTitle, search }) => {
     );
 };
 
-export default MainHero
+export default Banner;

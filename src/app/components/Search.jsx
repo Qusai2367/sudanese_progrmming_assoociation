@@ -3,7 +3,7 @@ import React from "react";
 const Search = () => {
     return (
         <div
-            className="px-4 py-3 w-100 bg-gray-400"
+            className="px-4 py-3 w-100 "
             style={{ maxWidth: "32rem" }}
         >
             <label

@@ -5,7 +5,7 @@ import { Heart, MessageCircle, Clock } from "react-feather";
 import Link from "next/link";
 
 
-const slugify = (str) =>
+export const slugify = (str) =>
     str
         .toLowerCase()
         .trim()

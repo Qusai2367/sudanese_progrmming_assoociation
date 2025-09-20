@@ -1,5 +1,5 @@
 import Tips from "../components/Posts/Tips";
-import MainHero from "../components/MainHero";
+import Banner from "../components/Banner";
 import FeatuerArticle from "../components/Posts/FeatuerArticle";
 import ProjectUpdates from "../components/Posts/ProjectUpdates";
 import Search from "../components/Search";
@@ -16,7 +16,7 @@ const Article = () => {
                 className="container-fluid d-flex flex-column"
                 style={{ maxWidth: "1200px" }}
             >
-                <MainHero
+                <Banner
                     mainDescription=" Short technical articles, tips for Sudanese programmers, and
                     updates about our organization's projects."
                     mainTitle=" Latest from Tech Innovators of Sudan"

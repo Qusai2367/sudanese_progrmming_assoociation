@@ -1,7 +1,6 @@
 import Team from "../components/About/Team";
-import MainHero from "../components/MainHero";
+import Banner from "../components/Banner";
 import GridCard from "../utils/GridCard";
-
 
 export const metadata = {
     title: "About Us - SPA",
@@ -11,14 +10,13 @@ export const metadata = {
 const About = () => {
     return (
         <>
-            <MainHero
+            <Banner
                 mainDescription="SudanDevs began as a spark of an idea among a small group of passionate Sudanese developers. We saw the incredible potential for technology to transform our nation and wanted to create a space for others to learn, collaborate, and innovate. What started as informal meetups and workshops quickly grew into a thriving community, and today, we're proud to be a formal organization driving technological change in Sudan."
                 mainTitle="Our Story"
             />
 
             <GridCard />
             <Team />
-        
         </>
     );
 };

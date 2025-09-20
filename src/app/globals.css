@@ -1,12 +1,11 @@
 :root {
-    
     --color-gray-400: #99a1af;
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: #1e2939;
     --color-gray-900: #101828;
     --color-white: #fff;
-    --red-color : #ea2a33;
+    --red-color: #ea2a33;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -66,18 +65,41 @@ a {
         padding: 2.5rem 1rem;
     }
 }
-.bg-gray-900 {background: var(--color-gray-900);}
-.bg-gray-800 {background: var(--color-gray-800);}
-.bg-gray-700 {background: var(--color-gray-700);}
-.bg-gray-400 {background: var(--color-gray-400);}
-.text-gray-900 {color: var(--color-gray-900);}
-.text-gray-700 {color: var(--color-gray-700);}
-.text-gra {color: var(--color-gray-400);}
-.bg-red  {background: var(--red-color);}
-.t-red  {color: var(--red-color);}
+.bg-gray-900 {
+    background: var(--color-gray-900);
+}
+.bg-gray-800 {
+    background: var(--color-gray-800);
+}
+.bg-gray-700 {
+    background: var(--color-gray-700);
+}
+.bg-gray-400 {
+    background: var(--color-gray-400);
+}
+.text-gray-900 {
+    color: var(--color-gray-900);
+}
+.text-gray-700 {
+    color: var(--color-gray-700);
+}
+.text-gra {
+    color: var(--color-gray-400);
+}
+.bg-red {
+    background: var(--red-color);
+}
+.t-red {
+    color: var(--red-color);
+}
+.bg-main {
+    background: #ea2a33;
+}
+.text-main {
+    color: #ea2a33;
+}
 .like-button {
     border: none;
- 
 }
 
 .like-button.liked {
@@ -88,4 +110,23 @@ a {
     html {
         color-scheme: dark;
     }
+}
+
+@media (max-width: 576px) {
+    .banner-photo {
+        display: none;
+    }
+}
+
+@media (min-width: 350px) {
+    .banner-font {
+        font-size: 10px;
+    }
+}
+
+.active {
+    color: var(--red-color) !important;
+    font-weight: bolder;
+    font-style: oblique;
+    text-decoration: underline;
 }
