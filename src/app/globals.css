@@ -125,8 +125,6 @@ a {
 }
 
 .active {
-    color: var(--red-color) !important;
     font-weight: bolder;
     font-style: oblique;
-    text-decoration: underline;
 }
