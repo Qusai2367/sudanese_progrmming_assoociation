@@ -155,6 +155,21 @@ const NavBar = () => {
                                 >
                                     Join us
                                 </Nav.Link>
+                                <Nav.Link
+                                    as={Link}
+                                    href="/login"
+                                    active={pathname === "/login"}
+                                    className="join-us-btn"
+                                    style={{
+                                        backgroundColor: "#1773dbff",
+                                        borderRadius: "20px",
+                                        color: "white",
+                                        fontWeight: "bold",
+                                        padding: "10px 20px",
+                                    }}
+                                >
+                                    Login
+                                </Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
