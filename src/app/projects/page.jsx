@@ -1,10 +1,8 @@
 import React from 'react'
 
-const Projects = () => {
+function Projects() {
   return (
-    <div>
-      <h1>Projects</h1>
-    </div>
+    <div>Projects</div>
   )
 }
 
