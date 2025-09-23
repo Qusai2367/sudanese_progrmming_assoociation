@@ -69,7 +69,7 @@ export const providers = [
     portfolio: "https://exampole.com",
   },
   {
-    id: 4,
+    id: 5,
     name: "Mohamed Osman",
     service: "Mobile App",
     image: img,
@@ -83,7 +83,7 @@ export const providers = [
     portfolio: "https://exampole.com",
   },
   {
-    id: 4,
+    id: 6,
     name: "Mohamed Osman",
     service: "Mobile App",
     image: img,
