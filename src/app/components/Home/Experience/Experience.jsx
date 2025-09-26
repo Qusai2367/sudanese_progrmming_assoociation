@@ -3,7 +3,7 @@ import {experience} from "./experience";
 
 const Experience = () => {
   return (
-    <section className="spacing bg-gray-900 text-white">
+    <section className="spacing text-white">
       <div className="text-center mb-5">
         <h2 className="fw-bold display-6"> Work Experience</h2>
       </div>

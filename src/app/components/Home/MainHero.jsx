@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import spa from "@/app/assets/logo.jpeg"
 
 
 const MainHero = () => {

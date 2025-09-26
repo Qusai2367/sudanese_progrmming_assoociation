@@ -1,6 +1,6 @@
 import MainHero from "./components/Home/MainHero";
 import NavBar from "./components/Navbar";
-import Services from "./components/Home/Service/Services";
+import Services from "./components/Service/Services";
 import Experience from "./components/Home/Experience/Experience";
 import Portfolio from "./components/Home/Portfolio/Portfolio";
 import Testimonials from "./components/Home/Testimonials/Testimonials";

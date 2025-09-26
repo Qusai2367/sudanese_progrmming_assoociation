@@ -1,8 +1,8 @@
 "use client";
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import InputField from "../components/InputField";
-import TextareaField from "../components/TextareaField";
+import InputField from "../../components/auth/InputField";
+import TextareaField from "../../components/auth/TextareaField";
 
 const LANGS = [
   "JavaScript", "TypeScript", "Python", "Java", "C#", "C++",
@@ -16,10 +16,10 @@ const FRAMEWORKS = [
 ];
 
 const STEPS = [
-  { key: "role", title: "نوع الحساب" },
-  { key: "basic", title: "بيانات أساسية" },
-  { key: "skills", title: "المهارات" },
-  { key: "details", title: "تفاصيل إضافية" },
+  { key: "role", title: "Type Of Account" },
+  { key: "basic", title: "Personal Data" },
+  { key: "skills", title: "Skills" },
+  { key: "details", title: "More Details" },
 ];
 
 export default function Register() {
@@ -71,29 +71,29 @@ export default function Register() {
     const r = form.role;
 
     if (STEPS[i].key === "basic") {
-      if (!form.name.trim()) newErrors.name = "الاسم مطلوب";
-      if (!form.age) newErrors.age = "العمر مطلوب";
-      if (!form.email.trim()) newErrors.email = "البريد الإلكتروني مطلوب";
-      if (!form.password) newErrors.password = "كلمة المرور مطلوبة";
+      if (!form.name.trim()) newErrors.name = "Name Required";
+      if (!form.age) newErrors.age = "A geRequired";
+      if (!form.email.trim()) newErrors.email = "Email Required";
+      if (!form.password) newErrors.password = "Password Requiredة";
       else if (!isPasswordValid(form.password))
-        newErrors.password = "كلمة المرور يجب أن تكون 8 أحرف على الأقل وتحتوي على رمز";
-      if (!form.checkPassword) newErrors.checkPassword = "تأكيد كلمة المرور مطلوب";
+        newErrors.password = "Password Must Contin 8 character atlest and contin symbol";
+      if (!form.checkPassword) newErrors.checkPassword = "Password Conform Required";
       else if (form.password !== form.checkPassword)
-        newErrors.checkPassword = "كلمة المرور غير متطابقة";
+        newErrors.checkPassword = "Password unmatch";
       if (r === "provider" && !form.specialty.trim())
-        newErrors.specialty = "التخصص مطلوب";
+        newErrors.specialty = "Specialization Required";
     }
 
     if (STEPS[i].key === "skills" && r === "provider") {
-      if (form.langs.length === 0) newErrors.langs = "اختر لغة واحدة على الأقل";
+      if (form.langs.length === 0) newErrors.langs = "Choose one Language at least";
     }
 
     if (STEPS[i].key === "details" && r === "provider") {
-      if (!form.services.trim()) newErrors.services = "الخدمات مطلوبة";
+      if (!form.services.trim()) newErrors.services = "Services Required";
     }
 
     if (i === STEPS.length - 1) {
-      if (!form.policy) newErrors.policy = "يجب الموافقة على الشروط والأحكام";
+      if (!form.policy) newErrors.policy = "Terms and Conditions must approved";
     }
 
     setErrors(newErrors);
@@ -124,12 +124,10 @@ export default function Register() {
 
   return (
     <main
-      dir="rtl"
-      lang="ar"
       className="container py-5"
       style={{ maxWidth: 760 }}
     >
-      <h1 className="text-center mb-4 text-white">إنشاء حساب</h1>
+      <h1 className="text-center mb-4 text-white">Create Account</h1>
 
       {/* Progress bar */}
       <div className="mb-3">
@@ -141,7 +139,7 @@ export default function Register() {
           ))}
         </div>
         <div className="progress mt-2">
-          <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+          <div className="progress-bar bg-main" style={{ width: `${progress}%` }}></div>
         </div>
       </div>
 
@@ -153,21 +151,21 @@ export default function Register() {
         {/* Step 0: Role */}
         {step === 0 && (
           <div className="mb-3">
-            <label className="form-label">نوع الحساب</label>
+            <label className="form-label">Type Of Account</label>
             <div className="btn-group d-flex">
               <button
                 type="button"
-                className={`btn ${form.role === "provider" ? "btn-primary" : "btn-outline-light"} ms-2` }
+                className={`btn ${form.role === "provider" ? "bg-main text-white" : "btn-outline-light"} ms-2` }
                 onClick={() => setForm({ ...form, role: "provider" })}
               >
-                مقدم خدمة
+               Service Provider
               </button>
               <button
                 type="button"
-                className={`btn ${form.role === "buyer" ? "btn-primary" : "btn-outline-light"}`}
+                className={`btn ${form.role === "buyer" ? "bg-main text-white" : "btn-outline-light"}`}
                 onClick={() => setForm({ ...form, role: "buyer" })}
               >
-                مشتري
+                client
               </button>
             </div>
           </div>
@@ -176,14 +174,14 @@ export default function Register() {
         {/* Step 1: Basic Info */}
         {step === 1 && (
           <>
-            <InputField name="name" placeholder="الاسم" value={form.name} onChange={onChange} error={errors.name} />
-            <InputField type="number" name="age" placeholder="العمر" value={form.age} onChange={onChange} error={errors.age} />
-            <InputField type="email" name="email" placeholder="البريد الإلكتروني" value={form.email} onChange={onChange} error={errors.email} />
-            <InputField type="password" name="password" placeholder="كلمة المرور" value={form.password} onChange={onChange} error={errors.password} />
-            <InputField type="password" name="checkPassword" placeholder="تأكيد كلمة المرور" value={form.checkPassword} onChange={onChange} error={errors.checkPassword} />
+            <InputField name="name" placeholder="Name" value={form.name} onChange={onChange} error={errors.name} />
+            <InputField type="number" name="age" placeholder="Age" value={form.age} onChange={onChange} error={errors.age} />
+            <InputField type="email" name="email" placeholder="Email" value={form.email} onChange={onChange} error={errors.email} />
+            <InputField type="password" name="password" placeholder="Password" value={form.password} onChange={onChange} error={errors.password} />
+            <InputField type="password" name="checkPassword" placeholder="Password Confirm" value={form.checkPassword} onChange={onChange} error={errors.checkPassword} />
 
             {form.role === "provider" && (
-              <InputField name="specialty" placeholder="التخصص" value={form.specialty} onChange={onChange} error={errors.specialty} />
+              <InputField name="specialty" placeholder="specialazation" value={form.specialty} onChange={onChange} error={errors.specialty} />
             )}
           </>
         )}
@@ -191,14 +189,14 @@ export default function Register() {
         {/* Step 2: Skills */}
         {step === 2 && form.role === "provider" && (
           <>
-            <label className="form-label">اختر لغات البرمجة</label>
+            <label className="form-label">Choose Programming Language</label>
             <div className="mb-3 d-flex flex-wrap gap-2">
               {LANGS.map((lang) => (
                 <button
                   type="button"
                   key={lang}
                   onClick={() => toggleChip("langs", lang)}
-                  className={`btn btn-sm ${form.langs.includes(lang) ? "btn-primary" : "btn-outline-light"}`}
+                  className={`btn btn-sm ${form.langs.includes(lang) ? "bg-main" : "btn-outline-light"}`}
                 >
                   {lang}
                 </button>
@@ -206,14 +204,14 @@ export default function Register() {
             </div>
             {errors.langs && <div className="text-danger">{errors.langs}</div>}
 
-            <label className="form-label">اختر أطر العمل</label>
+            <label className="form-label">Choose frameworks</label>
             <div className="mb-3 d-flex flex-wrap gap-2">
               {FRAMEWORKS.map((fw) => (
                 <button
                   type="button"
                   key={fw}
                   onClick={() => toggleChip("frameworks", fw)}
-                  className={`btn btn-sm ${form.frameworks.includes(fw) ? "btn-primary" : "btn-outline-light"}`}
+                  className={`btn btn-sm ${form.frameworks.includes(fw) ? "bg-main" : "btn-outline-light"}`}
                 >
                   {fw}
                 </button>
@@ -227,19 +225,19 @@ export default function Register() {
           <>
             {form.role === "provider" && (
               <>
-                <TextareaField name="services" placeholder="الخدمات التي تقدمها" value={form.services} onChange={onChange} error={errors.services} />
-                <InputField type="url" name="portfolio" placeholder="رابط البورتفوليو (اختياري)" value={form.portfolio} onChange={onChange} />
-                <InputField name="projects" placeholder="مشاريع سابقة (اختياري)" value={form.projects} onChange={onChange} />
-                <InputField type="file" name="degree" placeholder="الشهادة (اختياري)" value={form.degree} onChange={onChange} />
+                <TextareaField name="services" placeholder="The Service you Provide" value={form.services} onChange={onChange} error={errors.services} />
+                <InputField type="url" name="portfolio" placeholder="Your Portifolio (optionl)" value={form.portfolio} onChange={onChange} />
+                <InputField name="projects" placeholder="Previous Projects (optional)" value={form.projects} onChange={onChange} />
+                <InputField type="file" name="degree" placeholder="Certificates (optional)" value={form.degree} onChange={onChange} />
               </>
             )}
 
             <div className="form-check mt-3">
               <input className="form-check-input" type="checkbox" id="policy" name="policy" checked={form.policy} onChange={onChange} />
               <label className="form-check-label text-white" htmlFor="policy">
-                أوافق على{" "}
+                I agree to{" "}
                 <Link href={"/terms"} className="info-text">
-                  الشروط و الأحكام
+                  Terms And Conditions
                 </Link>
               </label>
               {errors.policy && <div className="text-danger">{errors.policy}</div>}
@@ -250,16 +248,16 @@ export default function Register() {
         {/* Navigation buttons */}
         <div className="d-flex justify-content-between mt-4">
           <button type="button" className="btn btn-outline-light" onClick={back} disabled={step === 0}>
-            السابق
+            Previous
           </button>
           {step < (form.role === "provider" ? 3 : 1) ? (
-            <button type="button" className="btn btn-primary" onClick={next}>
-              التالي
+            <button type="button" className="btn bg-main text-white" onClick={next}>
+              Next
             </button>
           ) : (
             <Link href={"/"}>
-            <button type="submit" className="btn btn-success">
-              إرسال
+            <button type="submit" className="btn btn-primary ">
+              Send
             </button>
             </Link>
           )}

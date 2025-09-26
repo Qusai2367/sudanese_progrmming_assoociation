@@ -3,7 +3,7 @@ import {portfolio} from "./portfolio";
 
 const Portfolio = () => {
   return (
-    <section className="spacing bg-gray-800 text-white">
+    <section className="spacing text-white">
       <div className="text-center mb-5">
         <h2 className="fw-bold display-6"> Portfolio</h2>
         <p className="text-gra fs-6">

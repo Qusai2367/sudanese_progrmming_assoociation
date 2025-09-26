@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "./Search";
+
 
 const Banner = ({ mainDescription, mainTitle, search }) => {
     return (
