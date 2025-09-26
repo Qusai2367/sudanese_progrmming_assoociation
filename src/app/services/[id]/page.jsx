@@ -1,18 +1,27 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { providers } from "../../data/providers";
 import { renderStars } from "@/app/components/Service/ProviderCard";
 import Image from "next/image";
 import Link from "next/link";
 import RequestServiceModal from "../../components/Service/requestService/page";
 import Review from "@/app/components/Service/Review";
+import { useAuth } from "@/app/Context/AuthContext";
+import { usePathname } from "next/navigation";
 
 const ProviderProfile = ({ params }) => {
     const [showRequestModal, setShowRequestModal] = useState(false);
     const { id } = React.use(params);
     const provider = providers.find((p) => p.id === parseInt(id));
     const [providerData, setProviderData] = useState(provider);
-    
+    const { requireAuth, user } = useAuth();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        requireAuth(pathname);
+    },[user, pathname])
+
+    if (!user) return null
 
     if (!provider) {
         return (
@@ -33,6 +42,10 @@ const ProviderProfile = ({ params }) => {
                 </div>
             </div>
         );
+    }
+
+    function HandleConatctProvider() {
+        setShowRequestModal(true);
     }
 
     return (
@@ -117,7 +130,7 @@ const ProviderProfile = ({ params }) => {
                             <div className="d-flex flex-column gap-3">
                                 <button
                                     className="btn bg-red text-white px-4 py-3 rounded fw-semibold"
-                                    onClick={() => setShowRequestModal(true)}
+                                    onClick={() => HandleConatctProvider()}
                                 >
                                     Contact Provider
                                 </button>

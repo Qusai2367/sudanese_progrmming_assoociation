@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import {  useState } from "react";
 import { usePathname } from "next/navigation";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import logo from "../assets/logo.jpeg";
 import Image from "next/image";
+import { useAuth } from "@/app/Context/AuthContext";
 
 const NavBar = () => {
+    const { user, logout } = useAuth();
     const [expanded, setExpanded] = useState(false);
     const pathname = usePathname();
 
@@ -132,7 +134,7 @@ const NavBar = () => {
                                 >
                                     Community
                                 </Nav.Link>
-                              
+
                                 <Nav.Link
                                     as={Link}
                                     href="/contact"
@@ -140,21 +142,38 @@ const NavBar = () => {
                                 >
                                     Contact
                                 </Nav.Link>
-                                <Nav.Link
-                                    as={Link}
-                                    href="/login"
-                                    active={pathname === "/login"}
-                                    className="join-us-btn"
-                                    style={{
-                                        backgroundColor: "#ea2a33",
-                                        borderRadius: "20px",
-                                        color: "white",
-                                        fontWeight: "bold",
-                                        padding: "10px 20px",
-                                    }}
-                                >
-                                    Join us
-                                </Nav.Link>
+
+                                {user ? (
+                                    <button
+                                        onClick={logout}
+                                        className="btn"
+                                        style={{
+                                            backgroundColor: "#ea2a33",
+                                            borderRadius: "20px",
+                                            color: "white",
+                                            fontWeight: "bold",
+                                            padding: "10px 20px",
+                                        }}
+                                    >
+                                        logout
+                                    </button>
+                                ) : (
+                                    <Nav.Link
+                                        as={Link}
+                                        href="/login"
+                                        active={pathname === "/login"}
+                                        className="join-us-btn"
+                                        style={{
+                                            backgroundColor: "#ea2a33",
+                                            borderRadius: "20px",
+                                            color: "white",
+                                            fontWeight: "bold",
+                                            padding: "10px 20px",
+                                        }}
+                                    >
+                                        Join us
+                                    </Nav.Link>
+                                )}
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

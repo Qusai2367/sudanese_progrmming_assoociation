@@ -1,9 +1,13 @@
 "use client";
 
+import { useAuth } from "@/app/Context/AuthContext";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
+
+    const {login} =  useAuth();
+    console.log(login)
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -34,6 +38,8 @@ export default function Login() {
 
         setErrors({});
         console.log("Login:", form);
+
+        login(form.email , form.password)
     };
 
     return (
