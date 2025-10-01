@@ -4,7 +4,9 @@ import Image from "next/image";
 export default function Team() {
     return (
         <>
-            <h1 className="text-white display-5 p-4 fw-bold lh-tight text-center">Meet Our Team</h1>
+            <div className="section-header">
+                <h2>Meet Our Team</h2>
+            </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 m4 p-4 text-center justify-content-center">
                 {teams.map((team) => (
                     <div key={team.id} className="col ">

@@ -4,7 +4,7 @@ import Link from "next/link";
 import InputField from "../../components/auth/InputField";
 import TextareaField from "../../components/auth/TextareaField";
 import { useAuth } from "@/app/Context/AuthContext";
-import { usePathname } from "next/navigation";
+import Loader from "@/app/components/Loader";
 
 const LANGS = [
     "JavaScript",
@@ -227,17 +227,20 @@ export default function Register() {
     }, [step, form.role]);
 
     return (
-        <main className="container py-5" style={{ maxWidth: 760 }}>
-            <h1 className="text-center mb-4 text-white">Create Account</h1>
+
+        <>
+             <Loader delay={2000} />
+             <main className="container py-5" style={{ maxWidth: 760 }}>
+            <h1 className="text-center mb-4 text-white textDarkMode ">Create Account</h1>
 
             {/* Progress bar */}
-            <div className="mb-3">
+            <div className="mb-3 ">
                 <div className="d-flex justify-content-between small text-white">
                     {STEPS.map((s, i) => (
                         <span
                             key={s.key}
                             className={
-                                i === step ? "fw-bold" : "text-secondary"
+                                i === step ? "fw-bold textDarkMode" : "text-secondary"
                             }
                         >
                             {i + 1}. {s.title}
@@ -253,14 +256,14 @@ export default function Register() {
             </div>
 
             <form
-                className="card p-4 shadow text-light"
+                className="card p-4 shadow text-light sp-card "
                 style={{ backgroundColor: "#1e2939" }}
                 onSubmit={onSubmit}
             >
                 {/* Step 0: Role */}
                 {step === 0 && (
-                    <div className="mb-3">
-                        <label className="form-label">Type Of Account</label>
+                    <div className="mb-3 ">
+                        <label className="form-label textDarkMode text-white">Type Of Account</label>
                         <div className="btn-group d-flex">
                             <button
                                 type="button"
@@ -426,6 +429,7 @@ export default function Register() {
                                             ? errors.services
                                             : ""
                                     }
+                                    className="input-style-2"
                                 />
                                 <InputField
                                     type="url"
@@ -438,6 +442,7 @@ export default function Register() {
                                             ? errors.portfolio
                                             : ""
                                     }
+                                    className="input-style-2"
                                 />
                                 <InputField
                                     name="projects"
@@ -449,13 +454,14 @@ export default function Register() {
                                             ? errors.projects
                                             : ""
                                     }
+                                    className="input-style-2"
                                 />
                             </>
                         )}
 
                         <div className="form-check mb-3">
                             <input
-                                className="form-check-input"
+                                className="form-check-input input-style-2"
                                 type="checkbox"
                                 id="policyCheck"
                                 name="policy"
@@ -509,5 +515,7 @@ export default function Register() {
                 </div>
             </form>
         </main>
+        </>
+        
     );
 }

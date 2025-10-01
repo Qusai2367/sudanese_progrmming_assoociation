@@ -10,8 +10,8 @@ const Review = ({ providerData, setProviderData }) => {
     const [alertType, setAlertType] = useState(""); // "success", "danger", "warning"
     return (
         <div>
-            <div className="bg-gray-800 rounded p-4">
-                <h3 className="h5 fw-bold mb-3 text-white">Add Your Review</h3>
+            <div className="bg-gray-800 rounded p-4  service-card">
+                <h3 className="h5 fw-bold mb-3 text-white textDarkMode">Add Your Review</h3>
                 
                 {/* Alert Messages */}
                 {alertMessage && (
@@ -30,7 +30,7 @@ const Review = ({ providerData, setProviderData }) => {
                         <button
                             key={star}
                             type="button"
-                            className="bg-transparent border-0 p-0 m-0"
+                            className="bg-transparent border-0 p-0 m-0 "
                             onMouseEnter={() => setHoverRating(star)}
                             onMouseLeave={() => setHoverRating(0)}
                             onClick={() => setNewRating(star)}
@@ -58,19 +58,19 @@ const Review = ({ providerData, setProviderData }) => {
                     ))}
                 </div>
                 <div className="mb-3">
-                    <label className="form-label text-white">Your Name</label>
+                    <label className="form-label text-white textDarkMode">Your Name</label>
                     <input
                         type="text"
-                        className="form-control bg-gray-700 text-white border-gray-600"
+                        className="input-style-2 form-control bg-gray-700 text-white border-gray-600"
                         value={clientName}
                         onChange={(e) => setClientName(e.target.value)}
                         placeholder="Enter your name"
                     />
                 </div>
                 <div className="mb-3">
-                    <label className="form-label text-white">Your Review</label>
+                    <label className="form-label text-white textDarkMode">Your Review</label>
                     <textarea
-                        className="form-control bg-gray-700 text-white border-gray-600"
+                        className="input-style form-control bg-gray-700 text-white border-gray-600"
                         rows={3}
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}

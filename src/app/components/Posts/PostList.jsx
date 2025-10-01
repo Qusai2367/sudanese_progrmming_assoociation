@@ -4,17 +4,16 @@ import Image from "next/image";
 import { Heart, MessageCircle, Clock } from "react-feather";
 import Link from "next/link";
 
-
 export const slugify = (str) =>
     str
         .toLowerCase()
         .trim()
         .replace(/[^\w\s-]/g, "")
-        .replace(/\s+/g, "-"); 
+        .replace(/\s+/g, "-");
 
 const PostList = () => {
     return (
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-4">
+        <div className="experience-grid">
             {posts.length === 0 ? (
                 <div
                     className="col-12 d-flex justify-content-center align-items-center"
@@ -26,23 +25,22 @@ const PostList = () => {
                 posts.map((post) => {
                     const slug = `${post.id}-${slugify(post.title)}`;
                     return (
-                        <div className="col " key={post.id}>
-                            <Link
-                                href={`/article/${slug}`}
-                                className="card h-100 border-0 rounded-4 p-2 overflow-hidden shadow-sm transition-shadow duration-300 bg-gray-800 "
-                            >
+                        <div className="service-card  " key={post.id}>
+                            <Link href={`/article/${slug}`}>
                                 <div
                                     className="w-100 position-relative"
                                     style={{ height: "200px" }}
                                 >
                                     <Image
-                                        src={post.PostImage || post.image}
+                                        src={post.PostImage}
                                         alt={post.title}
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        style={{ objectFit: "cover" }}
                                         className="rounded-top"
                                     />
                                 </div>
+
                                 <div className="card-body p-4 d-flex flex-column gap-2 ">
                                     <div className="d-flex align-items-center gap-2">
                                         <Image
@@ -52,22 +50,16 @@ const PostList = () => {
                                             height={40}
                                             className="rounded-circle"
                                         />
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                flexDirection: "column",
-                                            }}
-                                            className="mt-3 ml-4"
-                                        >
-                                            <h6 className="card-title text-light  fw-semibold lh-sm">
+                                        <div className="service-info">
+                                            <h3 className="service-name">
                                                 {post.author.name}
-                                            </h6>
-                                            <p className="fs-6 fw-normal lh-base text-gra">
+                                            </h3>
+                                            <p className="service-type">
                                                 {post.author.specialization}
                                             </p>
                                         </div>
                                     </div>
-                                    <h5 className="card-title text-light fs-5 fw-semibold lh-sm">
+                                    <h5 className="card-title text-light fs-5 fw-semibold lh-sm textDarkMode">
                                         {post.title}
                                     </h5>
                                     <p className="fs-6 fw-normal lh-base text-gra">

@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import FeatuerArticle from "../components/Posts/FeatuerArticle";
 import ProjectUpdates from "../components/Posts/ProjectUpdates";
 import Search from "../components/Search";
+import Loader from "../components/Loader";
 
 export const metadata = {
     title: "Blog - SPA",
@@ -11,22 +12,25 @@ export const metadata = {
 
 const Article = () => {
     return (
-        <main className=" d-flex flex-1 justify-content-center">
-            <div
-                className="container-fluid d-flex flex-column"
-                style={{ maxWidth: "1200px" }}
-            >
-                <Banner
-                    mainDescription=" Short technical articles, tips for Sudanese programmers, and
-                    updates about our organization's projects."
-                    mainTitle=" Latest from Tech Innovators of Sudan"
-                    search={<Search />}
-                />
-                <FeatuerArticle />
-                <Tips />
-                <ProjectUpdates />
-            </div>
-        </main>
+        <>
+            <Loader delay={2000} />
+            <main className=" d-flex flex-1 justify-content-center">
+                <div
+                    className="container-fluid d-flex flex-column"
+                    style={{ maxWidth: "1200px" }}
+                >
+                    <Banner
+                        mainDescription=" Short technical articles, tips for Sudanese programmers, and
+              updates about our organization's projects."
+                        mainTitle=" Latest from Tech Innovators of Sudan"
+                        search={<Search />}
+                    />
+                    <FeatuerArticle />
+                    <Tips />
+                    <ProjectUpdates />
+                </div>
+            </main>
+        </>
     );
 };
 

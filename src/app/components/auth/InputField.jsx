@@ -14,7 +14,7 @@ export default function InputField({
         style={{ backgroundColor: "#2a3b55ff", border: "none" }}
         type={type}
         name={name}
-        className="form-control text-white border-secondary"
+        className="form-control text-white border-secondary input-style-2"
         id={name}
         placeholder={placeholder}
         value={value}

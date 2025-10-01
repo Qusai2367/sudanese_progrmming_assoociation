@@ -62,14 +62,15 @@ const Comments = ({ postId, onCommentAdded }) => {
 
     return (
         <div id="comments" className={styles.commentsSection}>
-            <h3 className={styles.commentsTitle}>Comments</h3>
+            <h3 className="text-light textDarkMode">Comments</h3>
             <form onSubmit={handleCommentSubmit} className={styles.commentForm}>
                 <textarea
-                    className={styles.commentTextarea}
+                    className="border-0 px-4 py-3 rounded-4 input-style "
                     rows="2"
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                     placeholder="Join the conversation..."
+                    
                 ></textarea>
                 <button
                     type="submit"
@@ -78,7 +79,7 @@ const Comments = ({ postId, onCommentAdded }) => {
                     Submit
                 </button>
             </form>
-            <div className={styles.commentsContainer}>
+            <div className="service-card">
                 {comments.map((comment) => (
                     <Comment
                         key={comment.id}

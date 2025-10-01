@@ -4,7 +4,7 @@ import Image from "next/image";
 const ProjectUpdates = () => {
     return (
         <section>
-            <div className=" p-4">
+            <div className="p-4">
                 {projectUpdate.length === 0 ? (
                     <div
                         className="col-12 d-flex justify-content-center align-items-center"
@@ -15,7 +15,7 @@ const ProjectUpdates = () => {
                 ) : (
                     projectUpdate.map((project) => (
                         <div
-                            className="card  p-3 mb-4 border-0 bg-gray-800 rounded-4 shadow-sm overflow-hidden text-light"
+                            className="service-card my-4"
                             key={project.id}
                         >
                             <div className="d-flex flex-column flex-md-row align-items-center gap-4">
@@ -40,7 +40,7 @@ const ProjectUpdates = () => {
                                         {project.description}
                                     </p>
                                     <button
-                                        className="btn btn-light rounded-pill fw-semibold p-2 mx-auto mx-md-0"
+                                        className="bg-main border-0 text-light text-darkMode service-skill-tag rounded-pill fw-semibold p-2 mx-auto mx-md-0"
                                         style={{
                                             width: "120px",
                                             cursor: "pointer",

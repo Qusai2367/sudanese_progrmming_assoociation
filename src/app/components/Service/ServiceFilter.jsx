@@ -23,11 +23,7 @@ const ServiceFilter = ({
         <Row className="mb-4 text-white hover">
           <Col md={4}>
             <Form.Control
-              style={{
-                backgroundColor: "#1e2939",
-                color: "#fff",
-              }}
-              className="place"
+              className="place input-style-samll"
               type="text"
               placeholder="Search by Name or type of Service..."
               value={search}
@@ -36,10 +32,7 @@ const ServiceFilter = ({
           </Col>
           <Col md={4}>
             <Form.Select
-              style={{
-                backgroundColor: "#1e2939",
-                color: "#fff",
-              }}
+               className="place input-style-samll"
               value={minRating}
               onChange={(e) => setMinRating(Number(e.target.value))}
             >
@@ -50,14 +43,11 @@ const ServiceFilter = ({
           </Col>
           <Col md={4}>
             <Form.Select
-              style={{
-                backgroundColor: "#1e2939",
-                color: "#fff",
-              }}
+              className="place input-style-samll"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="all">All</option>
+              <option value="all" style={{color:"red" }}>All</option>
               <option value="web">Web Development</option>
               <option value="design">UI/UX Design</option>
               <option value="mobile">Mobile Development</option>

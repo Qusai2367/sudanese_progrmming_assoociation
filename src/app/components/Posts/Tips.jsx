@@ -5,7 +5,7 @@ const Tips = () => {
     return (
         <section>
             <SectionDescription title="Tips for Sudanese Programmers" />
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-4">
+            <div className="experience-grid">
                 {tipsArticle.length === 0 ? (
                     <div
                         className="col-12 d-flex justify-content-center align-items-center"
@@ -15,8 +15,8 @@ const Tips = () => {
                     </div>
                 ) : (
                     tipsArticle.map((tip) => (
-                        <div className="col" key={tip.id}>
-                            <div className="card h-100 border-0 bg-gray-800  rounded-4 p-4 overflow-hidden shadow-sm transition-transform duration-300 text-light hover:shadow-lg hover:-translate-y-1">
+                        <div className="service-card " key={tip.id}>
+                            <div >
                                 <div className="d-flex flex-column">
                                     <div
                                         className="d-flex justify-content-center align-items-center rounded-circle bg-red  text-white"

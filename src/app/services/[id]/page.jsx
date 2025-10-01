@@ -4,10 +4,11 @@ import { providers } from "../../data/providers";
 import { renderStars } from "@/app/components/Service/ProviderCard";
 import Image from "next/image";
 import Link from "next/link";
-import RequestServiceModal from "../../components/Service/requestService/page";
+import RequestServiceModal from "../../components/Service/requestService/RequestServiceModal";
 import Review from "@/app/components/Service/Review";
 import { useAuth } from "@/app/Context/AuthContext";
 import { usePathname } from "next/navigation";
+import Loader from "@/app/components/Loader";
 
 const ProviderProfile = ({ params }) => {
     const [showRequestModal, setShowRequestModal] = useState(false);
@@ -19,13 +20,13 @@ const ProviderProfile = ({ params }) => {
 
     useEffect(() => {
         requireAuth(pathname);
-    },[user, pathname])
+    }, [user, pathname]);
 
-    if (!user) return null
+    if (!user) return null;
 
     if (!provider) {
         return (
-            <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+            <div className="min-h-screen bg-gray-900 bg-service-provider flex items-center justify-center">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold text-white mb-4">
                         Provider Not Found
@@ -49,9 +50,11 @@ const ProviderProfile = ({ params }) => {
     }
 
     return (
-        <div className="min-vh-100 bg-gray-900 text-white">
+      <>
+          <Loader delay={2000} />
+          <div className="min-vh-100 bg-gray-900 text-white bg-service-provider">
             {/* Header */}
-            <div className="profile-header border-bottom border-secondary">
+            <div className="profile-header border-bottom border-second service-card-2">
                 <div className=" px-4 py-5">
                     <Link
                         href="/services"
@@ -91,14 +94,16 @@ const ProviderProfile = ({ params }) => {
                         </div>
 
                         <div className="col-md-7">
-                            <h3 className="display-4 fw-bold mb-2">
-                                {provider.name}
-                            </h3>
+                            <div>
+                                <h3 className="display-4 fw-bold mb-2 textDarkMode">
+                                    {provider.name}
+                                </h3>
+                            </div>
                             <p className="fs-4 text-main mb-3">
                                 {provider.serviceType}
                             </p>
 
-                            <div className="d-flex align-items-center mb-3">
+                            <div className="d-flex align-items-center mb-3 ">
                                 <div className="star-rating me-3">
                                     {renderStars(providerData.rating)}
                                 </div>
@@ -154,18 +159,18 @@ const ProviderProfile = ({ params }) => {
                 <div className="row g-4">
                     {/* Main Content */}
                     <div className="col-lg-8">
-                        <div className="d-flex flex-column gap-4">
+                        <div className="d-flex flex-column gap-4 ">
                             {/* Bio */}
-                            <div className="bg-gray-800 rounded p-4">
-                                <h2 className="h3 fw-bold mb-3">
+                            <div className="bg-gray-800 rounded p-4 service-card">
+                                <h2 className="h3 fw-bold mb-3 textDarkMode">
                                     About {provider.name}
                                 </h2>
                                 <p className="text-gra lh-lg">{provider.bio}</p>
                             </div>
 
                             {/* Skills */}
-                            <div className="bg-gray-800 rounded p-4">
-                                <h2 className="h3 fw-bold mb-3">
+                            <div className="bg-gray-800 rounded p-4  service-card">
+                                <h2 className="h3 fw-bold mb-3 textDarkMode">
                                     Skills & Technologies
                                 </h2>
                                 <div className="d-flex flex-wrap gap-2">
@@ -183,8 +188,8 @@ const ProviderProfile = ({ params }) => {
                             {/* Certifications */}
                             {provider.certifications &&
                                 provider.certifications.length > 0 && (
-                                    <div className="bg-gray-800 rounded p-4">
-                                        <h2 className="h3 fw-bold mb-3">
+                                    <div className="bg-gray-800 rounded p-4  service-card">
+                                        <h2 className="h3 fw-bold mb-3 textDarkMode">
                                             Certifications
                                         </h2>
                                         <div className="d-flex flex-column gap-3">
@@ -220,8 +225,8 @@ const ProviderProfile = ({ params }) => {
                             {/* Project Photos */}
                             {provider.projectPhotos &&
                                 provider.projectPhotos.length > 0 && (
-                                    <div className="bg-gray-800 rounded p-4">
-                                        <h2 className="h3 fw-bold mb-3">
+                                    <div className="bg-gray-800 rounded p-4  service-card">
+                                        <h2 className="h3 fw-bold mb-3 textDarkMode">
                                             Project Gallery
                                         </h2>
                                         <div className="project-gallery row g-3">
@@ -260,8 +265,8 @@ const ProviderProfile = ({ params }) => {
                     <div className="col-lg-4">
                         <div className="d-flex flex-column gap-4">
                             {/* Rating Summary */}
-                            <div className="bg-gray-800 rounded p-4">
-                                <h3 className="h5 fw-bold mb-3">
+                            <div className="bg-gray-800 rounded p-4 service-card">
+                                <h3 className="h5 fw-bold mb-3 textDarkMode">
                                     Rating Summary
                                 </h3>
                                 <div className="text-center">
@@ -278,17 +283,17 @@ const ProviderProfile = ({ params }) => {
                             </div>
 
                             {/* Recent Reviews */}
-                            <div className="bg-gray-800 rounded p-4">
-                                <h3 className="h5 fw-bold mb-3">
+                            <div className="bg-gray-800 rounded p-4  service-card">
+                                <h3 className="h5 fw-bold mb-3 textDarkMode">
                                     Recent Reviews
                                 </h3>
-                                <div className="d-flex flex-column gap-3">
+                                <div className="d-flex flex-column gap-3 ">
                                     {providerData.feedback
                                         .slice(0, 3)
                                         .map((review, index) => (
                                             <div
                                                 key={index}
-                                                className="review-card border-bottom border-secondary pb-3 p-3 rounded"
+                                                className="review-card border-bottom border-secondary pb-3 p-3 rounded  service-card"
                                             >
                                                 <div className="d-flex align-items-center mb-2">
                                                     <div className="star-rating me-2">
@@ -343,6 +348,7 @@ const ProviderProfile = ({ params }) => {
                 provider={provider}
             />
         </div>
+      </>
     );
 };
 

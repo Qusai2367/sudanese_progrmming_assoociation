@@ -143,7 +143,8 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                 setSubmitSuccess(false);
                 setCurrentStep(1);
                 onHide();
-            }, 1200);
+            }, 100000);
+            
         } catch (error) {
             console.error("Error submitting service request:", error);
             setErrors({
@@ -176,11 +177,11 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
     if (!provider) return null;
 
     return (
-        <Modal show={show} onHide={handleClose} size="lg" centered>
-            <Modal.Header closeButton className="bg-gray-800 text-white">
-                <Modal.Title>Request Service from {provider.name}</Modal.Title>
+        <Modal show={show} onHide={handleClose} size="lg" centered >
+            <Modal.Header closeButton className="bg-gray-800 text-white service-card-3">
+                <Modal.Title className="textDarkMode">Request Service from {provider.name}</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="bg-gray-800 text-white">
+            <Modal.Body className="bg-gray-800 text-white service-card-2">
                 {submitSuccess ? (
                     <div className="text-center py-4">
                         <Alert
@@ -217,7 +218,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                 />
                             </div>
                             <div className="d-flex justify-content-between mt-2 small text-gray-400">
-                                <span>
+                                <span className="textDarkMode">
                                     Step {currentStep} of {totalSteps}
                                 </span>
                                 <span>
@@ -244,7 +245,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                     >
                                         {currentStep > 1 ? "✓" : "1"}
                                     </div>
-                                    <span className={`ms-2 small ${currentStep >= 1 ? "text-white" : "text-gray-400"}`}>
+                                    <span className={`ms-2 small ${currentStep >= 1 ? "text-white textDarkMode" : "text-gray-400"}`}>
                                         Personal Info
                                     </span>
                                 </div>
@@ -262,14 +263,14 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                     <div
                                         className={`rounded-circle d-flex align-items-center justify-content-center ${
                                             currentStep >= 2
-                                                ? "bg-danger text-white"
-                                                : "bg-gray-600 text-gray-400"
+                                                ? "bg-danger text-white "
+                                                : "bg-gray-600 text-gray-400 textDarkMode"
                                         }`}
                                         style={{ width: 30, height: 30, fontSize: 14 }}
                                     >
                                         {currentStep > 2 ? "✓" : "2"}
                                     </div>
-                                    <span className={`ms-2 small ${currentStep >= 2 ? "text-white" : "text-gray-400"}`}>
+                                    <span className={`ms-2 small ${currentStep >= 2 ? "text-white " : "text-gray-400 textDarkMode"}`}>
                                         Project Details
                                     </span>
                                 </div>
@@ -290,13 +291,13 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                 className={`rounded-circle d-flex align-items-center justify-content-center ${
                                                     currentStep >= 3
                                                         ? "bg-danger text-white"
-                                                        : "bg-gray-600 text-gray-400"
+                                                        : "bg-gray-600 text-gray-400 textDarkMode"
                                                 }`}
                                                 style={{ width: 30, height: 30, fontSize: 14 }}
                                             >
                                                 {currentStep > 3 ? "✓" : "3"}
                                             </div>
-                                            <span className={`ms-2 small ${currentStep >= 3 ? "text-white" : "text-gray-400"}`}>
+                                            <span className={`ms-2 small ${currentStep >= 3 ? "text-white " : "text-gray-400 textDarkMode"}`}>
                                                 Questions
                                             </span>
                                         </div>
@@ -309,8 +310,8 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                         <div className="mb-4 text-center">
                             {currentStep === 1 && (
                                 <div>
-                                    <h4 className="text-white mb-2">Personal Information</h4>
-                                    <p className="text-gray-400 small">Tell us about yourself and your budget</p>
+                                    <h4 className="text-white mb-2 textDarkMode">Personal Information</h4>
+                                    <p className="text-gray-400 small textDarkMode">Tell us about yourself and your budget</p>
                                 </div>
                             )}
                             {currentStep === 2 && (
@@ -328,7 +329,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                         </div>
 
                         {/* Provider Info */}
-                        <div className="mb-4 p-3 text-white bg-gray-900 rounded">
+                        <div className="mb-4 p-3 text-white bg-gray-900 rounded sp-card">
                             <h5 className="text-main mb-2">
                                 {provider.serviceType}
                             </h5>
@@ -339,11 +340,11 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                         {/* Step 1: Client Information */}
                         {currentStep === 1 && (
                             <div>
-                                <h5 className="text-white mb-3">Your Information</h5>
+                                <h5 className="text-white mb-3 textDarkMode">Your Information</h5>
                                 <Row>
                                     <Col md={6}>
                                         <Form.Group className="mb-3">
-                                            <Form.Label className="text-white">
+                                            <Form.Label className="text-white textDarkMode">
                                                 Full Name *
                                             </Form.Label>
                                             <Form.Control
@@ -355,7 +356,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white border-gray-600 input-style-2"
                                                 placeholder="Enter your full name"
                                                 isInvalid={!!errors.clientName}
                                             />
@@ -366,7 +367,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                     </Col>
                                     <Col md={6}>
                                         <Form.Group className="mb-3">
-                                            <Form.Label className="text-white">
+                                            <Form.Label className="text-white textDarkMode">
                                                 Email Address *
                                             </Form.Label>
                                             <Form.Control
@@ -378,7 +379,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white border-gray-600 input-style-2"
                                                 placeholder="Enter your email"
                                                 isInvalid={!!errors.clientEmail}
                                             />
@@ -391,7 +392,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                 <Row>
                                     <Col md={6}>
                                         <Form.Group className="mb-3">
-                                            <Form.Label className="text-white">
+                                            <Form.Label className="text-white textDarkMode">
                                                 Phone Number *
                                             </Form.Label>
                                             <Form.Control
@@ -403,7 +404,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white input-style-2 border-gray-600"
                                                 placeholder="Enter your phone number"
                                                 isInvalid={!!errors.clientPhone}
                                             />
@@ -414,7 +415,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                     </Col>
                                     <Col md={6}>
                                         <Form.Group className="mb-3">
-                                            <Form.Label className="text-white">
+                                            <Form.Label className="text-white textDarkMode">
                                                 Budget *
                                             </Form.Label>
                                             <Form.Control
@@ -426,7 +427,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white border-gray-600 input-style-2"
                                                 placeholder="e.g., $500 - $1000"
                                                 isInvalid={!!errors.budget}
                                             />
@@ -442,9 +443,9 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                         {/* Step 2: Project Details */}
                         {currentStep === 2 && (
                             <div>
-                                <h5 className="text-white mb-3">Project Details</h5>
+                                <h5 className="text-white mb-3 textDarkMode">Project Details</h5>
                                 <Form.Group className="mb-3">
-                                    <Form.Label className="text-white">
+                                    <Form.Label className="text-white textDarkMode">
                                         Project Description *
                                     </Form.Label>
                                     <Form.Control
@@ -457,7 +458,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                 e.target.value
                                             )
                                         }
-                                        className="bg-gray-700 text-white border-gray-600"
+                                        className="bg-gray-700 text-white border-gray-600 input-style-2"
                                         placeholder="Describe your project requirements in detail"
                                         isInvalid={!!errors.projectDescription}
                                     />
@@ -466,7 +467,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                    <Form.Label className="text-white">
+                                    <Form.Label className="text-white textDarkMode">
                                         Timeline *
                                     </Form.Label>
                                     <Form.Control
@@ -478,7 +479,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                 e.target.value
                                             )
                                         }
-                                        className="bg-gray-700 text-white border-gray-600"
+                                        className="bg-gray-700 text-white input-style-2 border-gray-600"
                                         placeholder="e.g., 2 weeks, 1 month"
                                         isInvalid={!!errors.timeline}
                                     />
@@ -492,12 +493,12 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                         {/* Step 3: Dynamic Questions */}
                         {currentStep === 3 && dynamicQuestions.length > 0 && (
                             <div>
-                                <h5 className="text-white mb-3">
+                                <h5 className="text-white mb-3 textDarkMode">
                                     Additional Questions
                                 </h5>
                                 {dynamicQuestions.map((question, index) => (
                                     <Form.Group key={index} className="mb-3">
-                                        <Form.Label className="text-white">
+                                        <Form.Label className="text-white textDarkMode">
                                             {question.label} {question.required && "*"}
                                         </Form.Label>
                                         
@@ -510,12 +511,12 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white border-gray-600 input-style-2"
                                                 isInvalid={!!errors[`question_${index}`]}
                                             >
-                                                <option value="">Select an option</option>
+                                                <option value="" className="input-style-2" >Select an option</option>
                                                 {question.options?.map((option, optIndex) => (
-                                                    <option key={optIndex} value={option}>
+                                                    <option key={optIndex} className="input-style-2" value={option}>
                                                         {option}
                                                     </option>
                                                 ))}
@@ -531,7 +532,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white border-gray-600 input-style-2"
                                                 placeholder="Your answer"
                                                 isInvalid={!!errors[`question_${index}`]}
                                             />
@@ -545,7 +546,7 @@ const RequestServiceModal = ({ show, onHide, provider }) => {
                                                         e.target.value
                                                     )
                                                 }
-                                                className="bg-gray-700 text-white border-gray-600"
+                                                className="bg-gray-700 text-white border-gray-600 input-style-2"
                                                 isInvalid={!!errors[`question_${index}`]}
                                             />
                                         ) : (

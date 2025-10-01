@@ -1,7 +1,7 @@
 import Image from "next/image";
 const ArticleImage = ({source,altrenative}) => {
   return (
-      <div className="w-100 position-relative" style={{ height: "100vh" }}>
+      <div className="w-100 position-relative" style={{ height: "50vh" }}>
           <Image
               src={source}
               alt={altrenative}

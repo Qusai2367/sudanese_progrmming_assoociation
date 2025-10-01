@@ -66,91 +66,78 @@ const ProviderCard = ({ provider }) => {
     return (
         <Link
             href={`/services/${provider.id}`}
-            className="text-decoration-none border-none"
+            className="service-card"
         >
-            <div className="provider-card bg-gray-900 rounded shadow-lg p-4 h-100">
-                {/* Profile Picture */}
-                <div className="d-flex align-items-center mb-3">
-                    <div
-                        className="position-relative"
-                        style={{ width: "60px", height: "60px" }}
-                    >
-                        <Image
-                            src={provider.profilePicture}
-                            alt={provider.name}
-                            fill
-                            className="rounded-circle object-fit-cover"
-                        />
-                    </div>
-                    <div className="ms-3">
-                        <h5 className="fw-bold text-white mb-1">
-                            {provider.name}
-                        </h5>
-                        <p className="text-main mb-0 fw-medium">
-                            {provider.serviceType}
-                        </p>
-                    </div>
+            {/* Profile Section */}
+            <div className="service-profile">
+                <div className="service-avatar">
+                    <Image
+                        src={provider.profilePicture}
+                        alt={provider.name}
+                        fill
+                        className="service-avatar-img"
+                    />
                 </div>
-
-                {/* Rating */}
-                <div className="d-flex align-items-center mb-3">
-                    <div className="star-rating me-2">
-                        {renderStars(provider.rating)}
-                    </div>
-                    <span className="text-warning fw-semibold">
-                        {provider.rating}
-                    </span>
-                    <span className="text-gra ms-2 small">
-                        ({provider.totalReviews} reviews)
-                    </span>
+                <div className="service-info">
+                    <h3 className="service-name">
+                        {provider.name}
+                    </h3>
+                    <p className="service-type">
+                        {provider.serviceType}
+                    </p>
                 </div>
+            </div>
 
-                {/* Bio Preview */}
-                <p
-                    className="text-gra small mb-3"
-                    style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                    }}
-                >
-                    {provider.bio}
-                </p>
-
-                {/* Stats */}
-                <div className="d-flex justify-content-between align-items-center small mb-3">
-                    <div className="text-gra">
-                        <span className="fw-semibold text-white">
-                            {provider.projectsCompleted}
-                        </span>{" "}
-                        projects completed
-                    </div>
-                    <div className="text-main fw-semibold">
-                        {provider.hourlyRate}
-                    </div>
+            {/* Rating Section */}
+            <div className="service-rating">
+                <div className="service-stars">
+                    {renderStars(provider.rating)}
                 </div>
+                <span className="service-rating-value">
+                    {provider.rating}
+                </span>
+                <span className="service-reviews">
+                    ({provider.totalReviews} reviews)
+                </span>
+            </div>
 
-                {/* Skills Preview */}
-                <div>
-                    <div className="d-flex flex-wrap gap-1">
-                        {(provider.skills || [])
-                            .slice(0, 3)
-                            .map((skill, index) => (
-                                <span
-                                    key={index}
-                                    className="bg-gray-800 text-gra px-2 py-1 rounded small"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        {(provider.skills?.length || 0) > 3 && (
-                            <span className="text-gra small">
-                                +{(provider.skills?.length || 0) - 3} more
+            {/* Bio Section */}
+            <p className="service-bio">
+                {provider.bio}
+            </p>
+
+            {/* Stats Section */}
+            <div className="service-stats">
+                <div className="service-projects">
+                    <span className="service-projects-count">
+                        {provider.projectsCompleted}
+                    </span>{" "}
+                    projects completed
+                </div>
+                <div className="service-rate">
+                    {provider.hourlyRate}
+                </div>
+            </div>
+
+            {/* Skills Section */}
+            <div className="service-skills">
+                <div className="service-skills-list">
+                    {(provider.skills || [])
+                        .slice(0, 3)
+                        .map((skill, index) => (
+                            <span
+                                key={index}
+                                className="service-skill-tag"
+                            >
+                                {skill}
                             </span>
-                        )}
-                    </div>
+                        ))}
                 </div>
+                {(provider.skills?.length || 0) > 3 && (
+                    <div className="service-more-skills">
+                        +{(provider.skills?.length || 0) - 3} more skills
+                    </div>
+                )}
             </div>
         </Link>
     );

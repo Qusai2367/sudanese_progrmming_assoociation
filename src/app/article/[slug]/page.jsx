@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 import ArticleReact from "@/app/components/Posts/ArticleReact";
 import AuthorArticle from "@/app/components/Posts/AuthorArticle";
 import SectionDescription from "@/app/components/Posts/SectionDescription";
@@ -8,10 +8,11 @@ import { posts } from "@/app/data/posts";
 import ArticleContnet from "@/app/components/Posts/ArticleContnet";
 import ArticleImage from "@/app/components/Posts/ArticleImage";
 import Comments from "@/app/components/Posts/comment/Comments";
+import Loader from "@/app/components/Loader";
 
 const ArticleDetails = () => {
     const pathname = usePathname();
-    const slug = pathname.split('/').pop();
+    const slug = pathname.split("/").pop();
     const [id] = slug.split("-");
     const [article, setArticle] = useState(null);
     const [commentCount, setCommentCount] = useState(0);
@@ -45,39 +46,48 @@ const ArticleDetails = () => {
     }
 
     return (
-        <div className="col" key={article.id}>
-            <SectionDescription title={article.title} />
-            <div className="card h-100 border-0 rounded-4 p-2 overflow-hidden shadow-sm transition-shadow duration-300 bg-gray-900 ">
-                <ArticleImage
-                    source={article.PostImage}
-                    altrenative={article.title}
-                />
-                <div className="card-body p-4 d-flex flex-column gap-2 ">
-                    <ArticleContnet
-                        title={article.title}
-                        contnet={article.content.substring(0, 200)}
-                        length={article.content.length}
-                    />
-                    <ArticleReact
-                        like={article.likes}
-                        comment={commentCount}
-                        time={article.createdAt}
-                    />
-                    <AuthorArticle
-                        source={article.author.photo}
-                        altrenative={article.author.name}
-                        authorName={article.author.name}
-                        specialization={article.author.specialization}
-                    />
+        <>
+            <Loader delay={2000} />
+            <div className="col" key={article.id}>
+                <SectionDescription title={article.title} />
+                {/* <div className="d-flex card h-100 border-0 rounded-4 p-2 overflow-hidden shadow-sm transition-shadow duration-300 bg-gray-900 "> */}
+
+                <div className="row">
+                    <div className="col-12 col-sm-6">
+                        <ArticleImage
+                            source={article.PostImage}
+                            altrenative={article.title}
+                        />
+                    </div>
+
+                    <div className="col-12 col-sm-6">
+                        <ArticleContnet
+                            title={article.title}
+                            contnet={article.content.substring(0, 200)}
+                            length={article.content.length}
+                        />
+                    </div>
+                    <div className="col-12 card-body p-4 col-sm-6">
+                        <ArticleReact
+                            like={article.likes}
+                            comment={commentCount}
+                            time={article.createdAt}
+                        />
+                        <AuthorArticle
+                            source={article.author.photo}
+                            altrenative={article.author.name}
+                            authorName={article.author.name}
+                            specialization={article.author.specialization}
+                        />
+                    </div>
                 </div>
+                <Comments
+                    postId={article.id}
+                    onCommentAdded={handleCommentAdded}
+                />
             </div>
-            <Comments
-                postId={article.id}
-                onCommentAdded={handleCommentAdded}
-            />
-        </div>
+        </>
     );
 };
 
 export default ArticleDetails;
-

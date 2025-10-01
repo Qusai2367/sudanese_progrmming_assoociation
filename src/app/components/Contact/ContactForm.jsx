@@ -1,4 +1,5 @@
 "use client";
+import { HandlePath } from "@/app/utils/HandlePath";
 import React, { useState } from "react";
 
 const ContactForm = () => {
@@ -23,7 +24,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="bg-gray-800 rounded-4 p-4 shadow-lg">
+        <div className="bg-gray-800 rounded-4 p-4 shadow-lg service-card">
             <style>
                 {`
                     .form-control-dark:focus {
@@ -36,13 +37,15 @@ const ContactForm = () => {
                     }
                 `}
             </style>
-            <h3 className="text-white fw-bold mb-4">Send us a message</h3>
+            <h3 className="text-white fw-bold mb-4 textDarkMode">
+                Send us a message
+            </h3>
 
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <input
                         type="text"
-                        className="form-control form-control-dark form-control-lg border-0 bg-gray-700 text-white rounded-3"
+                        className="form-control form-control-dark form-control-lg border-0 bg-gray-700 text-white rounded-3 input-style-2"
                         placeholder="Your Name"
                         name="name"
                         value={formData.name}
@@ -55,7 +58,7 @@ const ContactForm = () => {
                 <div className="mb-3">
                     <input
                         type="email"
-                        className="form-control form-control-dark form-control-lg border-0 bg-gray-700 text-white rounded-3"
+                        className="form-control form-control-dark form-control-lg border-0 bg-gray-700 text-white rounded-3 input-style-2"
                         placeholder="Your Email"
                         name="email"
                         value={formData.email}
@@ -68,7 +71,7 @@ const ContactForm = () => {
                 <div className="mb-3">
                     <input
                         type="text"
-                        className="form-control form-control-dark form-control-lg border-0 bg-gray-700 text-white rounded-3"
+                        className="form-control form-control-dark form-control-lg border-0 bg-gray-700 text-white rounded-3 input-style-2"
                         placeholder="Subject"
                         name="subject"
                         value={formData.subject}
@@ -80,7 +83,7 @@ const ContactForm = () => {
 
                 <div className="mb-4">
                     <textarea
-                        className="form-control form-control-dark border-0 bg-gray-700 text-white rounded-3"
+                        className="form-control form-control-dark border-0 bg-gray-700 input-style-2 text-white rounded-3"
                         placeholder="Your Message"
                         name="message"
                         value={formData.message}
@@ -106,7 +109,7 @@ const ContactForm = () => {
                         (e.target.style.backgroundColor = "#ea2a33")
                     }
                 >
-                    Send Message
+                    <HandlePath btn="Send Message" />
                 </button>
             </form>
         </div>

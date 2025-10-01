@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import NavBar from "./components/Navbar";
 import AuthProvider from "./Context/AuthContext";
+import ThemeProvider from "./Context/ThemeContext";
+// import Loading from "./loading";
+// import Loader from "./loading";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -26,15 +29,18 @@ export default function RootLayout({ children }) {
             <body
                 className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}
             >
-                <AuthProvider>
-                    <NavBar />
-                    <main
-                        className="spacing md:p-2 flex-grow"
-                        style={{ position: "relative", marginTop: 50 }}
-                    >
-                        {children}
-                    </main>
-                </AuthProvider>
+                <ThemeProvider>
+                    <AuthProvider>
+                        <NavBar />
+                        <main
+                            className="spacing md:p-2 flex-grow"
+                            style={{ position: "relative", marginTop: 50 }}
+                        >
+                 
+                            {children}
+                        </main>
+                    </AuthProvider>
+                </ThemeProvider>
             </body>
         </html>
     );
