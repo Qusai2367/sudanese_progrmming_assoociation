@@ -10,10 +10,6 @@ import ArticleImage from "@/app/components/Posts/ArticleImage";
 import Comments from "@/app/components/Posts/comment/Comments";
 import Loader from "@/app/components/Loader";
 
-export const metadata = {
-    title: "SPA - Article Details",
-};
-
 const ArticleDetails = () => {
     const pathname = usePathname();
     const slug = pathname.split("/").pop();

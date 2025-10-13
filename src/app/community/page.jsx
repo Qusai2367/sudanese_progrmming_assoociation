@@ -55,7 +55,7 @@ const Community = () => {
         />
         <div className="position-absolute top-50 start-50 translate-middle">
           <h1 style={{ color: "#ea2a33" }}>{images[currentImg].title}</h1>
-          <p>{images[currentImg].text}</p>
+          <p style={{color:"white"}}>{images[currentImg].text}</p>
 
           <div className="text-center d-flex justify-content-center mt-3 align-items-center">
             <Button title={"Join our community"} customizBtn={"-"} />
