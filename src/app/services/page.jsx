@@ -5,6 +5,9 @@ import { providers } from "../data/providers";
 import HandleCLinetService from "../components/Service/HandleCLinetService";
 import Loader from "../components/Loader";
 
+export const metadata = {
+    title: "SPA - Services",
+};
 const Services = () => {
     return (
         <div className="">

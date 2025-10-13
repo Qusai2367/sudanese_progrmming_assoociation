@@ -39,6 +39,41 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.notfound-back {
+     color: var(--color-white);
+    background: linear-gradient(
+        135deg,
+        #0a0a0a 0%,
+        #1a1a2e 25%,
+        var(--color-gray-900) 50%,
+        var(--color-gray-800) 75%,
+        #16213e 100%
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 70px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 
+.notfound  {
+    color: #1c1e21;
+    background: linear-gradient(
+        135deg,
+        rgba(168, 216, 255, 0.6) 0%,
+        rgba(223, 243, 255, 0.6) 40%,
+        rgba(123, 188, 255, 0.6) 100%
+    ) ;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 70px;
+    -moz-osx-font-smoothing: grayscale;
+} */
+
 body.light {
     color: #1c1e21;
     background: linear-gradient(

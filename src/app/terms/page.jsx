@@ -1,5 +1,3 @@
-"use client";
-
 export default function Terms() {
   return (
     <main className="container py-5" style={{ maxWidth: 800 }}>
