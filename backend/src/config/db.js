@@ -1,0 +1,1 @@
+const mongoose = require('mongoose');\n\nconst connectDB = async () => {\n  const uri = process.env.MONGO_URI;\n  if (!uri) throw new Error('MONGO_URI not set in .env');\n  await mongoose.connect(uri, {\n    useNewUrlParser: true,\n    useUnifiedTopology: true,\n  });\n  console.log('MongoDB connected');\n};\n\nmodule.exports = connectDB;

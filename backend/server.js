@@ -1,0 +1,1 @@
+require('dotenv').config();\nconst app = require('./src/app');\nconst connectDB = require('./src/config/db');\n\nconst PORT = process.env.PORT || 5000;\n\nconnectDB().then(() => {\n  app.listen(PORT, () => {\n    console.log(`Server running on port ${PORT}`);\n  });\n}).catch(err => {\n  console.error('Failed to connect DB', err);\n  process.exit(1);\n});

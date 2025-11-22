@@ -1,0 +1,1 @@
+module.exports = function slugify(text) {\n  return text\n    .toString()\n    .toLowerCase()\n    .trim()\n    .replace(/[\s\W-]+/g, '-')\n    .replace(/^-+|-+$/g, '');\n};
