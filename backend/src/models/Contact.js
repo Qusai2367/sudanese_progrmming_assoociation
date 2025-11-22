@@ -1,1 +1,0 @@
-const mongoose = require('mongoose');\n\nconst contactSchema = new mongoose.Schema({\n  name: String,\n  email: String,\n  message: String,\n  createdAt: { type: Date, default: Date.now }\n});\n\nmodule.exports = mongoose.model('Contact', contactSchema);
